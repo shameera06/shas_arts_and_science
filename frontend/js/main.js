@@ -23,7 +23,7 @@ const EMAILJS_CONFIG = {
   serviceID: "service_37901th",
   templateID: (_savedTpl && _savedTpl !== "template_1n0155w") ? _savedTpl : "template_7gka1la",
   publicKey: localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0",
-  targetEmail: "meerananwer12@gmail.com"
+  targetEmail: "shameerashasha@gmail.com"
 };
 
 // Starting Fallback Notices
