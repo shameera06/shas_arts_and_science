@@ -1,19 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "framework": null,
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/api/health", "destination": "/api/health.js" },
     { "source": "/api/notices", "destination": "/api/notices.js" },
     { "source": "/api/admissions", "destination": "/api/admissions.js" },
     { "source": "/api/contact", "destination": "/api/contact.js" },
     { "source": "/api/(.*)", "destination": "/api/$1.js" },
-    { "source": "/", "destination": "/frontend/index.html" },
-    { "source": "/index.html", "destination": "/frontend/index.html" },
-    { "source": "/css/(.*)", "destination": "/frontend/css/$1" },
-    { "source": "/js/(.*)", "destination": "/frontend/js/$1" },
-    { "source": "/img/(.*)", "destination": "/frontend/img/$1" },
-    { "source": "/(.*)", "destination": "/frontend/$1" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
