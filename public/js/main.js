@@ -1261,6 +1261,7 @@ function buildEmailTemplateParams(data) {
     candidate_query: query,
     candidates_query: query,
     specific_query: query,
+    student_query: query,
     email_id: email,
     user_email: email,
     student_email: email,
