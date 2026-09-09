@@ -5,40 +5,46 @@ let inMemoryAdmissions = [
   {
     id: 1725619200000,
     submittedAt: "2026-09-01T10:30:00.000Z",
-    applicationId: "ACET-2026-1042",
+    applicationId: "SASC-2026-1042",
     fullName: "Praveen Kumar S",
     email: "praveen.k@gmail.com",
     phone: "9876543210",
-    department: "Computer Science and Engineering",
+    department: "B.Sc. Computer Science",
     marksPercentage: "92.5%",
-    quota: "Counseling (TNEA)",
+    quota: "University Single Window Merit Quota",
     status: "Verified",
-    message: "Interested in AI/ML specialization and hostel accommodation."
+    message: "Interested in AI & Data Analytics specialization and campus hostel accommodation."
   },
   {
     id: 1725705600000,
     submittedAt: "2026-09-03T14:15:00.000Z",
-    applicationId: "ACET-2026-1089",
+    applicationId: "SASC-2026-1089",
     fullName: "Sneha Ramanathan",
     email: "sneha.raman@outlook.com",
     phone: "9123456780",
-    department: "Electronics and Communication Engineering",
+    department: "B.Com (General & Accounting)",
     marksPercentage: "88.4%",
-    quota: "Management Quota",
+    quota: "Direct Management Quota",
     status: "In Review",
-    message: "Seeking scholarship details based on 12th board score."
+    message: "Seeking merit scholarship details based on 12th commerce board score."
   }
 ];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[6-9]\d{9}$/;
 const VALID_DEPARTMENTS = [
-  "Computer Science and Engineering",
-  "Electronics and Communication Engineering",
-  "Mechanical Engineering",
-  "Civil Engineering",
+  "B.Sc. Computer Science",
+  "BCA (Bachelor of Computer Applications)",
+  "B.Sc. Information Technology",
+  "B.Com (General & Accounting)",
+  "BBA (Business Administration)",
+  "B.A. English Literature",
+  "Computer Science",
+  "Computer Applications",
   "Information Technology",
-  "Artificial Intelligence and Data Science"
+  "Commerce",
+  "Business Administration",
+  "English Literature"
 ];
 
 function validateEnquiry(body) {
@@ -93,7 +99,7 @@ module.exports = (req, res) => {
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
     const newEntry = {
       id: Date.now(),
-      applicationId: `ACET-2026-${randomSuffix}`,
+      applicationId: `SASC-2026-${randomSuffix}`,
       submittedAt: new Date().toISOString(),
       status: "New Submission",
       ...cleaned

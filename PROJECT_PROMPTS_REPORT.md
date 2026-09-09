@@ -216,3 +216,64 @@ i need all the prompy from the beginning of this project to end. all the prompts
 i have added a new person in the faculty section. Abdul Gani make him a head of the dept any dept as your wish
 ```
 
+---
+
+## Phase 4: Institutional Transformation to Sha's Arts and Science College (SASC)
+
+### Prompt 24
+> **Date / Time:** 2026-09-08 20:25 IST  
+> **Tag:** Institutional Rebranding • Arts & Science Curriculum  
+```text
+change the institute name into sha's arts science college...and change some other things too
+```
+*Scope Executed: Full autonomous Arts & Science transition (University of Madras affiliation, 6 degree programmes: B.Sc CS, BCA, B.Sc IT, B.Com, BBA, B.A. English, revised fee scales, updated notices, SASC-2026-XXXX ID generator, faculty alignment while preserving leadership and photo assets).*
+
+### Prompt 25
+> **Date / Time:** 2026-09-08 21:15 IST  
+> **Tag:** Executive Governance Realignment  
+```text
+code runned... one more changes make founder and chairman as shameera and vise principl as anwer hussain
+```
+*Scope Executed: Designated Dr. Shameera Fathima as Founder & Chairperson (Sha's Educational Trust) and Mr. Anwer Hussain S S as Vice Principal & Administrator across primary and infinite-loop carousel displays.*
+
+### Prompt 26
+> **Date / Time:** 2026-09-08 21:23 IST  
+> **Tag:** Official Crest Logo Integration • Server Connectivity  
+```text
+can ypu please change the logo and it shows cant reach the site
+```
+*Scope Executed: Integrated official circular seal crest with 'LEARN • GROW • EXCEL' motto and academic shield into navbar, favicon, and footer; resolved server connection by binding Express listener to 0.0.0.0 on port 4000.*
+
+### Prompt 27
+> **Date / Time:** 2026-09-08 21:33 IST  
+> **Tag:** Faculty Profile Photo Update  
+```text
+change sahab khan photo into this
+```
+*Scope Executed: Replaced Dr. Sahab Khan's faculty portrait in frontend/img/faculty/ and pics/Faculty/ with the newly provided high-resolution photo.*
+
+### Prompt 28
+> **Date / Time:** 2026-09-08 21:51 IST  
+> **Tag:** Multiple Faculty Profiles & Photos Realignment  
+```text
+change Ajihar to abuthahir, abdul gani to dinesh, jivan karthec to hussain, manoj to yasini.. i have uploaded the photos in folder
+```
+*Scope Executed: Updated four faculty profiles: Dr. Ajihar Ali -> Dr. Abuthahir, Dr. Abdul Gani -> Dr. Dinesh, Dr. Jivan Karthec -> Dr. Hussain, Dr. Manoj Kumar -> Dr. Yasini; updated their corresponding images in frontend/img/faculty/ and pics/Faculty/ with cache-busted loading.*
+
+### Prompt 29
+> **Date / Time:** 2026-09-08 22:01 IST  
+> **Tag:** Faculty Name & Photo Alignment Swap  
+```text
+dinesh and abuthahir.. name has been changed.. so kindly chnge the name abuthahir into dinesh and dinesh into abuthathir
+```
+*Scope Executed: Swapped Dr. Dinesh and Dr. Abuthahir across faculty cards and underlying file assets so that Dr. Abuthahir is matched with the white shirt portrait and Dr. Dinesh is matched with the corresponding faculty portrait.*
+
+### Prompt 30
+> **Date / Time:** 2026-09-08 22:11 IST  
+> **Tag:** Live Server Execution & Browser Launch  
+```text
+run now
+```
+*Scope Executed: Verified active background Express server health on port 4000 and launched the portal directly in the default web browser.*
+
+

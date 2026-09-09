@@ -1,7 +1,8 @@
-# Anwer College of Engineering and Technology — Modern College Portal 🎓
+# Sha's Arts and Science College (Autonomous) — Modern College Portal 🎓
 
-An autonomous engineering college web portal built as a working full-stack application and software testing project. Features a modern collegiate design system, rich micro-animations, glassmorphic navigation, real-time notice filtering, an interactive fee & scholarship estimator, live countdown timer, and an integrated admission enquiry tracking portal with an Admin evaluation drawer.
+An autonomous Arts & Science collegiate web portal built as a working full-stack application and software testing project. Features a modern collegiate design system, rich micro-animations, glassmorphic navigation, real-time notice filtering, an interactive fee & scholarship estimator, live countdown timer, and an integrated admission enquiry tracking portal with an Admin evaluation drawer and direct EmailJS integration (`meerananwer12@gmail.com`).
 
+**Affiliated with the University of Madras • Approved by UGC • Re-accredited with 'A+' Grade**  
 **Ready for 100% Free Deployment on [Vercel](https://vercel.com).**
 
 ---
@@ -14,14 +15,20 @@ An autonomous engineering college web portal built as a working full-stack appli
 - **Micro-Animations**:
   - Emergency Notice Ticker with pulsing live indicator.
   - Admission 2026 priority deadline countdown timer ticking live every second.
-  - Infinite floating recruiter marquee showcasing Google, Microsoft, Amazon, TCS, Infosys, Wipro, and more.
+  - Infinite floating corporate recruiter marquee showcasing Amazon, Zoho, Deloitte, EY, TCS, Infosys, Cognizant, and more.
   - Animated leadership carousel with smooth continuous translation.
   - Interactive hover elevations, subtle glow shadows, and glassmorphic blur headers.
 
 ### 2. Interactive Academic & Department Explorer
-- Category filter pills: *All Disciplines*, *Computing & IT*, *Electrical & Electronics*, *Core Mechanical & Civil*.
-- Cards featuring intake capacity, NBA accreditation badges, top placement packages, and student clubs.
-- **Interactive Syllabus & Labs Modal**: Click *"View Syllabus & Labs"* to inspect the 4-year autonomous curriculum breakdown, laboratory facilities, and career roles for any branch.
+- Category filter pills: *All Disciplines*, *Computing & IT*, *Commerce & Management*, *Humanities & Languages*.
+- Program cards featuring intake capacity, affiliation badges, top placement packages, and student clubs for:
+  - **B.Sc. Computer Science** (Intake: 120, ₹42,000/sem)
+  - **Bachelor of Computer Applications (BCA)** (Intake: 120, ₹40,000/sem)
+  - **B.Sc. Information Technology** (Intake: 60, ₹38,000/sem)
+  - **B.Com (General & Accounting)** (Intake: 180, ₹36,000/sem)
+  - **Bachelor of Business Administration (BBA)** (Intake: 120, ₹35,000/sem)
+  - **B.A. English Literature** (Intake: 60, ₹28,000/sem)
+- **Interactive Syllabus & Labs Modal**: Click *"View Syllabus & Labs"* to inspect the 3-year (6 semesters) autonomous curriculum breakdown, high-tech laboratory facilities, and career roles for any department.
 
 ### 3. Dynamic Live Notice Board
 - Pulls live announcements directly from the college API (`/api/notices`).
@@ -30,33 +37,34 @@ An autonomous engineering college web portal built as a working full-stack appli
 - Simulated *"Download Official Circular (PDF)"* action with immediate feedback.
 
 ### 4. Interactive Fee & Scholarship Estimator
-- Choose your branch, admission quota (TNEA Counseling, Management, Lateral Entry), and whether to include hostel accommodation.
+- Choose your course, admission quota (Autonomous Merit, Management Quota, Sports & Cultural Quota), and whether to include hostel accommodation.
 - Adjust the **12th Board marks slider** (50% to 100%):
   - **95%+**: 75% Founder's Super-Merit Scholarship waiver.
   - **90%–94.9%**: 50% Academic Excellence Scholarship waiver.
   - **80%–89.9%**: 25% Merit Encouragement Grant.
 - Real-time tuition fee breakdown and net payable calculation.
-- *"Apply with this Scholarship"* button automatically transfers branch and score to the admission form!
+- *"Apply with this Scholarship"* button automatically transfers course and score to the admission form!
 
 ### 5. Working Admission Enquiry Portal
-- Complete client-side validation for Full Name, Email, 10-digit Indian Mobile Number, and Branch.
-- Submits securely to `/api/admissions`.
-- Instant generation of an official **Application ID (e.g. `ACET-2026-XXXX`)**.
+- Complete client-side validation for Full Name, Email, 10-digit Indian Mobile Number, and Program.
+- Submits securely to `/api/admissions` and dispatches notification via EmailJS directly to `meerananwer12@gmail.com`.
+- Instant generation of an official **Application ID (e.g. `SASC-2026-XXXX`)**.
 - Displays a celebratory **Confirmation Receipt Slip Modal** with save/print capabilities.
 
 ### 6. Mentor Evaluation Admin Drawer (Demo Mode)
 - Click **"Admin Portal"** in the top announcement bar or footer to open the mentor evaluation table.
 - View all submitted candidate records with real-time status badges (*Verified / In Review*).
-- Real-time search filter for candidate names, branches, or mobile numbers.
-- **Export to CSV**: Generates and downloads a real `acet_admissions_report.csv` spreadsheet file!
+- Real-time search filter for candidate names, programs, or mobile numbers.
+- **Export to CSV**: Generates and downloads a real `sasc_admissions_report.csv` spreadsheet file!
 - Reset demo records anytime with a single click.
+- Live EmailJS key test & status verification panel.
 
 ---
 
 ## 📁 Project Architecture
 
 ```
-anwer-college-portal/
+shameera college portal/
 ├── api/
 │   ├── notices.js            # Vercel Serverless Function (Notices API)
 │   └── admissions.js         # Vercel Serverless Function (Admissions API)
@@ -86,7 +94,7 @@ anwer-college-portal/
 
 ## 🚀 How to Run Locally
 
-1. Open terminal in the `anwer-college-portal` directory.
+1. Open terminal in the project directory.
 2. Install dependencies:
    ```bash
    cd backend
@@ -103,14 +111,14 @@ anwer-college-portal/
 
 ## ☁️ How to Deploy to Vercel for Free
 
-Please see the comprehensive [VERCEL_DEPLOYMENT_GUIDE.md](file:///c:/Users/DELL%20BUSTAN/Downloads/Anwer_Software_Testing/anwer-college-portal/VERCEL_DEPLOYMENT_GUIDE.md) for step-by-step instructions.
+Please see the comprehensive [VERCEL_DEPLOYMENT_GUIDE.md](file:///c:/Users/DELL%20BUSTAN/OneDrive/ドキュメント/shameera%20prompt/shameera%20college%20portal/VERCEL_DEPLOYMENT_GUIDE.md) for step-by-step instructions.
 
 **Quick Summary (2 Minutes):**
 1. Push this project to your GitHub repository.
 2. Log in to [vercel.com](https://vercel.com) and click **"Add New..."** &rarr; **"Project"**.
 3. Import your repository and click **"Deploy"**.
 4. Vercel automatically deploys the frontend and the serverless functions in `/api`.
-5. Later, go to **Project Settings &rarr; Domains** in Vercel to attach any custom domain (e.g. `anwercollege.ac.in`).
+5. Later, go to **Project Settings &rarr; Domains** in Vercel to attach any custom domain (e.g. `shasartsandscience.ac.in`).
 
 ---
 
@@ -120,19 +128,19 @@ Please see the comprehensive [VERCEL_DEPLOYMENT_GUIDE.md](file:///c:/Users/DELL%
 |---|---|---|
 | **1. Dynamic Announcements** | Observe the top bar marquee | News bulletins scroll smoothly across the screen without lag. |
 | **2. Live Countdown Timer** | Look at the Hero Section | The Days, Hours, Minutes, and Seconds decrement live every 1 second. |
-| **3. Department Filter** | Click *"Computing & IT"* | Only CSE, AI&DS, and IT cards are displayed with smooth reflow. |
-| **4. Syllabus Modal** | Click *"View Syllabus & Labs"* on CSE | Modal opens showing 8-semester curriculum breakdown; closes on 'X'. |
-| **5. Notice Board Search** | Type *"exam"* into notice search box | Instantly filters and displays only examination circulars. |
+| **3. Department Filter** | Click *"Computing & IT"* or *"Commerce & Management"* | Cards filter smoothly to the relevant programs. |
+| **4. Syllabus Modal** | Click *"View Syllabus & Labs"* on B.Sc. CS | Modal opens showing 6-semester Arts & Science curriculum breakdown; closes on 'X'. |
+| **5. Notice Board Search** | Type *"exam"* into notice search box | Instantly filters and displays Madras University semester exam circulars. |
 | **6. Notice Categories** | Click *"Admissions"* or *"Placements"* | Circulars re-filter immediately according to the selected category. |
 | **7. Fee Calculator** | Adjust 12th Board marks slider to 95% | Displays 75% Founder's Super-Merit Scholarship waiver & updates net fee. |
-| **8. Form Validation** | Submit empty form | Red validation errors appear under Full Name, Email, Phone, and Branch. |
-| **9. Valid Submission** | Fill name, email, phone (`9876543210`), branch | Confirmation slip modal appears with generated `ACET-2026-XXXX` ID. |
+| **8. Form Validation** | Submit empty form | Red validation errors appear under Full Name, Email, Phone, and Program. |
+| **9. Valid Submission** | Fill name, email, phone (`9876543210`), course | Confirmation slip modal appears with generated `SASC-2026-XXXX` ID. |
 | **10. Admin Records Portal**| Click *"Admin Portal"* in top bar | Submitted record is visible in table with status chip; allows CSV export! |
-| **11. Infinite Recruiter Marquee** | Scroll to Placements section | Recruiter badges (Google, Microsoft, Amazon, etc.) scroll continuously. |
+| **11. Infinite Recruiter Marquee** | Scroll to Placements section | Recruiter badges (Amazon, Zoho, Deloitte, EY, TCS, etc.) scroll continuously. |
 | **12. Responsive Reflow** | Resize browser to mobile width (<720px) | Hamburger menu activates; all cards stack cleanly with zero overlap. |
 
 ---
 
 ## 📄 License & Attribution
 
-Developed for Anwer College of Engineering and Technology (Autonomous). Built for Software Testing and Web Engineering curriculum evaluation.
+Developed for Sha's Arts and Science College (Autonomous). Built for Software Testing and Web Engineering curriculum evaluation.

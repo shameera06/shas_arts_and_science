@@ -1,6 +1,6 @@
 /**
- * Anwer College of Engineering and Technology (ACET)
- * Modern Collegiate Portal Application Logic
+ * Sha's Arts and Science College (SASC)
+ * Modern Autonomous Collegiate Portal Application Logic
  */
 
 // ==========================================================================
@@ -11,8 +11,8 @@ const API_BASE = (!IS_LOCAL_FILE && window.location.port !== "4000")
   ? "/api"
   : "http://localhost:4000/api";
 
-const LOCAL_STORAGE_ADMISSIONS_KEY = "acet_admissions_entries_v2";
-const LOCAL_STORAGE_CONTACTS_KEY = "acet_contact_messages_v1";
+const LOCAL_STORAGE_ADMISSIONS_KEY = "sasc_admissions_entries_v2";
+const LOCAL_STORAGE_CONTACTS_KEY = "sasc_contact_messages_v1";
 
 // ==========================================================================
 // EMAILJS INTEGRATION CONFIGURATION
@@ -20,8 +20,8 @@ const LOCAL_STORAGE_CONTACTS_KEY = "acet_contact_messages_v1";
 // ==========================================================================
 const EMAILJS_CONFIG = {
   serviceID: "service_r67exzm",
-  templateID: localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w",
-  publicKey: localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0",
+  templateID: localStorage.getItem("sasc_emailjs_template_id") || localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w",
+  publicKey: localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0",
   targetEmail: "meerananwer12@gmail.com"
 };
 
@@ -31,8 +31,8 @@ const FALLBACK_NOTICES = [
     id: 1,
     date: "2026-09-05",
     category: "Examinations",
-    title: "End Semester Theory Examinations (Nov/Dec 2026) Schedule & Hall Allocation",
-    body: "The final timetable and hall allocations for Anna University autonomous end-semester examinations have been published. Hall tickets can be collected from respective department offices starting 12 September.",
+    title: "Autonomous End Semester Theory Examinations (Nov/Dec 2026) Schedule & Hall Allocation",
+    body: "The final timetable and hall allocations for University of Madras autonomous end-semester examinations have been published. Hall tickets can be collected from respective department offices starting 12 September.",
     isNew: true,
     fileSize: "420 KB PDF"
   },
@@ -40,8 +40,8 @@ const FALLBACK_NOTICES = [
     id: 2,
     date: "2026-09-02",
     category: "Admissions",
-    title: "B.Tech & B.E. Lateral Entry Admissions 2026-27 (Round 2 Merit List)",
-    body: "Selected candidates for direct second-year engineering admission under merit quota are requested to report to the Central Auditorium with original documents before 20 September.",
+    title: "UG Admissions 2026-27 (B.Sc CS, BCA, B.Com, BBA & B.A.) Merit List Round 2 Released",
+    body: "Selected candidates under University Single Window & Merit Quota are requested to report to the Central Seminar Hall with original certificates before 20 September.",
     isNew: true,
     fileSize: "610 KB PDF"
   },
@@ -49,8 +49,8 @@ const FALLBACK_NOTICES = [
     id: 3,
     date: "2026-08-28",
     category: "Placements",
-    title: "Mega On-Campus Recruitment Drive 2026: Amazon, TCS & Cognizant",
-    body: "Eligible final-year students (CSE, IT, ECE, MECH) with CGPA > 7.0 and no active standing arrears can register for Day-1 virtual coding assessment through the Training & Placement portal.",
+    title: "Mega Campus Recruitment Drive 2026: Deloitte, Zoho, TCS, Infosys & HDFC Bank",
+    body: "Eligible final-year students (B.Sc CS, BCA, B.Sc IT, B.Com, BBA) can register for virtual assessments and personal interviews via the Training & Placement cell.",
     isNew: true,
     fileSize: "350 KB PDF"
   },
@@ -58,8 +58,8 @@ const FALLBACK_NOTICES = [
     id: 4,
     date: "2026-08-22",
     category: "Events",
-    title: "National Technical Symposium \"KURAL 2026\" & Hackathon Registrations Open",
-    body: "The Department of Computer Science & Engineering invites technical paper submissions, web-a-thons, and robotics challenges. Cash prizes worth ₹1,50,000 to be won. Teams of up to 4 can register.",
+    title: "State-Level Inter-Collegiate Arts & Science Symposium \"SHA-FEST 2026\" Registrations Open",
+    body: "Inviting student papers, web design hackathons, commerce case studies, and literary debates. Cash prizes worth ₹1,00,000 to be won. Teams of up to 4 can register.",
     isNew: false,
     fileSize: "1.2 MB PDF"
   },
@@ -67,8 +67,8 @@ const FALLBACK_NOTICES = [
     id: 5,
     date: "2026-08-15",
     category: "Scholarships",
-    title: "Merit-cum-Means & First Graduate Scholarships 2026-27 Notification",
-    body: "Applications are invited from eligible students for Tamil Nadu State Post-Matric and Anwer Merit Scholarship schemes. Submit duly signed forms at the administrative block counter 4.",
+    title: "Merit-cum-Means & Sha Founder's Scholarship Scheme 2026-27",
+    body: "Applications are invited from eligible students for Tamil Nadu State Post-Matric and Sha's Educational Trust Merit Scholarships. Submit signed forms at the administrative block counter 4.",
     isNew: false,
     fileSize: "280 KB PDF"
   },
@@ -76,8 +76,8 @@ const FALLBACK_NOTICES = [
     id: 6,
     date: "2026-08-10",
     category: "Campus",
-    title: "Central Digital Library 24/7 Reading Hall Facility during Exam Preparation",
-    body: "The Air-Conditioned Digital Learning Resource Centre and IEEE Xplore access terminal will remain open until midnight throughout the examination preparation cycle.",
+    title: "Central Digital Library & E-Learning Resource Terminal 24/7 Hours during Exams",
+    body: "The Air-Conditioned E-Learning Centre with INFLIBNET and DELNET digital access will remain open until midnight throughout the examination revision cycle.",
     isNew: false,
     fileSize: "190 KB PDF"
   }
@@ -90,25 +90,25 @@ function initializeLocalStorageAdmissions() {
     const initialSeed = [
       {
         id: 1725619200000,
-        applicationId: "ACET-2026-1042",
+        applicationId: "SASC-2026-1042",
         submittedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
         fullName: "Praveen Kumar S",
         email: "praveen.k@gmail.com",
         phone: "9876543210",
-        department: "Computer Science and Engineering",
+        department: "B.Sc. Computer Science",
         marksPercentage: "92.5%",
-        quota: "TNEA Single Window Counseling",
+        quota: "University Single Window Merit Quota",
         status: "Verified",
-        message: "Interested in AI/ML specialization and campus hostel accommodation."
+        message: "Interested in AI & Data Analytics specialization and campus hostel accommodation."
       },
       {
         id: 1725705600000,
-        applicationId: "ACET-2026-1089",
+        applicationId: "SASC-2026-1089",
         submittedAt: new Date(Date.now() - 86400000).toISOString(),
         fullName: "Sneha Ramanathan",
         email: "sneha.raman@outlook.com",
         phone: "9123456780",
-        department: "Electronics and Communication Engineering",
+        department: "B.Com (General & Accounting)",
         marksPercentage: "88.4%",
         quota: "Direct Management Quota",
         status: "In Review",
@@ -284,115 +284,115 @@ function initNoticeControls() {
 // DEPARTMENT FILTERING & SYLLABUS MODAL
 // ==========================================================================
 const DEPARTMENT_SYLLABUS_DATA = {
-  cse: {
-    name: "B.E. Computer Science and Engineering",
-    category: "DEPARTMENT OF COMPUTING",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Equips students with rigorous mathematical foundations, systems software, scalable cloud architecture, AI algorithms, and enterprise security standards.",
+  cs: {
+    name: "B.Sc. Computer Science",
+    category: "DEPARTMENT OF COMPUTING & DATA SCIENCES",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "Provides deep foundations in software development, data structures, algorithms, cloud computing, artificial intelligence, and database architecture.",
     highlights: [
-      "AI & Deep Learning Computing Cluster equipped with NVIDIA RTX workstations",
-      "Full-Stack Software Engineering & Open Source DevOps Incubator",
-      "Industry Capstone Projects co-evaluated with engineers from Amazon & TCS"
+      "AI & Data Science Computing Cluster equipped with modern workstations",
+      "Full-Stack Web Development & Open Source Software Lab",
+      "Industry Capstone Projects co-evaluated with engineers from Zoho, Amazon & TCS"
     ],
     semesters: [
-      { sem: "Sem 1 & 2: Foundational Engineering", subjects: "Linear Algebra, Engineering Physics, Python for Problem Solving, Data Structures, Digital Systems" },
-      { sem: "Sem 3 & 4: Core Systems", subjects: "Design & Analysis of Algorithms, Database Systems, Computer Architecture, Operating Systems, Java Programming" },
-      { sem: "Sem 5 & 6: Advanced Software & AI", subjects: "Artificial Intelligence & ML, Computer Networks, Theory of Computation, Cloud Computing, Compiler Design" },
-      { sem: "Sem 7 & 8: Specialisation & Capstone", subjects: "Cybersecurity, Big Data Analytics, Deep Learning Elective, Industry Internship, Major Capstone Project" }
+      { sem: "Sem 1 & 2: Computing Foundations", subjects: "Programming in C/C++, Mathematical Foundations, Digital Logic, Python Programming, Data Structures Lab" },
+      { sem: "Sem 3 & 4: Core Systems & Web", subjects: "Java & Object Oriented Programming, Database Management Systems, Operating Systems, Web Design & JavaScript" },
+      { sem: "Sem 5 & 6: Advanced Computing & AI", subjects: "Artificial Intelligence & Machine Learning, Computer Networks, Software Engineering, Cloud Computing, Major Capstone Project" }
     ],
-    careerRoles: "Software Development Engineer (SDE), Cloud Architect, Data Engineer, Full-Stack Developer, AI Researcher."
+    careerRoles: "Software Developer, Data Analyst, Web Application Engineer, System Administrator, QA Automation Engineer."
   },
-  aids: {
-    name: "B.Tech Artificial Intelligence & Data Science",
-    category: "DEPARTMENT OF EMERGING TECHNOLOGIES",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Specialized cutting-edge curriculum focusing on predictive statistical modeling, generative AI, natural language processing, computer vision, and big data pipeline engineering.",
+  bca: {
+    name: "BCA (Bachelor of Computer Applications)",
+    category: "DEPARTMENT OF COMPUTER APPLICATIONS",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "A career-focused professional computing program emphasizing application development, enterprise databases, mobile app design, and cloud deployments.",
     highlights: [
-      "High-Performance Tensor Computing and GPU Sandbox",
-      "Industry partnered Kaggle Analytics and Hackathon Cell",
-      "Hands-on projects with PyTorch, TensorFlow, HuggingFace, and Spark"
+      "Modern Application Development Studio (React, Node.js & Flutter)",
+      "Industry Partnered Hackathon Cell & Code Guild",
+      "High placement rate in top software services & IT enterprises"
     ],
     semesters: [
-      { sem: "Sem 1 & 2: Mathematical Basics", subjects: "Probability & Statistics, Discrete Mathematics, Python & NumPy, Object-Oriented Programming" },
-      { sem: "Sem 3 & 4: Foundations of Data", subjects: "Data Structures, Database Management Systems, Statistical Inference, Supervised Machine Learning" },
-      { sem: "Sem 5 & 6: Advanced AI Modules", subjects: "Deep Learning, Natural Language Processing, Computer Vision, Big Data Engineering with Spark" },
-      { sem: "Sem 7 & 8: Generative AI & Capstone", subjects: "Large Language Models & Prompt Eng, AI Ethics, Reinforcement Learning, Autonomous Industry Project" }
+      { sem: "Sem 1 & 2: Programming Fundamentals", subjects: "Problem Solving with Python, Discrete Mathematics, Computer Fundamentals, Web Designing (HTML5/CSS3), Office Automation" },
+      { sem: "Sem 3 & 4: Application Engineering", subjects: "Object Oriented Programming in Java, Relational Database Management, Data Structures, Mobile Application Development" },
+      { sem: "Sem 5 & 6: Enterprise Tech & Project", subjects: "Full Stack Web Technologies, Cloud Computing, Software Testing & Quality Assurance, Cyber Security Essentials, Live Project" }
     ],
-    careerRoles: "Machine Learning Engineer, Data Scientist, NLP Specialist, Computer Vision Engineer, Quantitative Analyst."
-  },
-  ece: {
-    name: "B.E. Electronics and Communication Engineering",
-    category: "DEPARTMENT OF CIRCUITS & COMMUNICATION",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Bridges cutting-edge semiconductor VLSI microchip design, 5G wireless protocols, embedded IoT architectures, and smart robotics.",
-    highlights: [
-      "DST-Supported Cadence & Synopsys VLSI Design EDA Suite",
-      "Texas Instruments Embedded IoT & Wireless Sensor Network Lab",
-      "Student Amateur Radio (HAM) Station & Autonomous Drone Club"
-    ],
-    semesters: [
-      { sem: "Sem 1 & 2: Physics & Electronics Core", subjects: "Circuit Theory, Semiconductor Physics, C Programming, Engineering Mathematics" },
-      { sem: "Sem 3 & 4: Analog & Digital Design", subjects: "Electronic Circuits, Digital Logic Design, Signals & Systems, Microprocessors & Microcontrollers" },
-      { sem: "Sem 5 & 6: Communication & VLSI", subjects: "VLSI Design, Digital Signal Processing, RF & Microwave Engineering, Embedded Linux" },
-      { sem: "Sem 7 & 8: Wireless & System Design", subjects: "5G Cellular Communication, Optical Networks, IoT System Architecture, Final Year Prototype Project" }
-    ],
-    careerRoles: "VLSI Verification Engineer, Embedded Firmware Developer, RF Engineer, IoT Solutions Architect, Telecom Specialist."
+    careerRoles: "Full-Stack Web Developer, Mobile App Developer, Database Administrator, UI/UX Technologist, Cloud Support Engineer."
   },
   it: {
-    name: "B.Tech Information Technology",
+    name: "B.Sc. Information Technology",
     category: "DEPARTMENT OF INFORMATION TECHNOLOGY",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Geared towards distributed computing, modern cloud networking, cybersecurity defenses, web application frameworks, and enterprise software delivery.",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "Focuses on computer networking, information security, enterprise cloud architectures, internet technologies, and system administration.",
     highlights: [
-      "Cisco Networking Academy Lab with hardware routers and switches",
-      "Web Technologies & Mobile App Design Studio (Flutter & React)",
-      "High placement rate with top tier product and services IT firms"
+      "CISCO-Powered Networking & Cyber Defense Lab",
+      "Linux Systems & Cloud Infrastructure Terminal",
+      "Certifications integrated with AWS Academy & Red Hat"
     ],
     semesters: [
-      { sem: "Sem 1 & 2: Computing Fundamentals", subjects: "Problem Solving, C++, Discrete Structures, Engineering Graphics" },
-      { sem: "Sem 3 & 4: Systems & Web", subjects: "Data Structures & Algorithms, Web Technologies, Database Systems, Computer Networks" },
-      { sem: "Sem 5 & 6: Enterprise & Security", subjects: "Software Engineering & Agile, Information Security, Cloud Services (AWS/Azure), Mobile Computing" },
-      { sem: "Sem 7 & 8: Distributed Systems", subjects: "DevOps Pipeline, Blockchain Technology, Enterprise Capstone Project, Industry Internship" }
+      { sem: "Sem 1 & 2: IT Fundamentals", subjects: "Foundations of IT, C Programming, Digital Electronics, Technical Communication, Data Structures" },
+      { sem: "Sem 3 & 4: Networks & Systems", subjects: "Computer Networks, Database Systems, Linux System Administration, Python for Network Automation" },
+      { sem: "Sem 5 & 6: Cloud & Cyber Defense", subjects: "Cloud Infrastructure (AWS/Azure), Information Security & Ethical Hacking, IoT Systems, Enterprise Internship Project" }
     ],
-    careerRoles: "Cloud DevOps Engineer, Information Security Analyst, Full-Stack Developer, Network Architect, IT Consultant."
+    careerRoles: "Network Engineer, Cloud Administrator, Cybersecurity Analyst, IT Operations Specialist, Systems Engineer."
   },
-  mech: {
-    name: "B.E. Mechanical Engineering",
-    category: "DEPARTMENT OF MECHANICAL SCIENCES",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Synthesizes classical thermodynamics, machine design, smart robotics automation, electric vehicle technology, and computational fluid dynamics (CFD).",
+  bcom: {
+    name: "B.Com (General & Accounting)",
+    category: "DEPARTMENT OF COMMERCE & FINANCE",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "Comprehensive business education blending financial accounting, corporate taxation, fintech analytics, banking laws, and investment management.",
     highlights: [
-      "SolidWorks & ANSYS CAD/CAM Simulation Lab",
-      "Mechatronics, CNC Robotics & Additive 3D Manufacturing Studio",
-      "Formula SAE Racing Car student team with national accolades"
+      "FinTech Simulation & Tally Prime / SAP Analytics Lab",
+      "Preparation pathways for CA, CMA, and CS foundation examinations",
+      "Corporate internships with premier audit and financial consultancy firms"
     ],
     semesters: [
-      { sem: "Sem 1 & 2: Mechanics & Workshop", subjects: "Engineering Mechanics, Workshop Practice, Material Science, Calculus" },
-      { sem: "Sem 3 & 4: Thermal & Manufacturing", subjects: "Thermodynamics, Fluid Mechanics, Kinematics of Machinery, Manufacturing Technology" },
-      { sem: "Sem 5 & 6: Design & Automation", subjects: "Design of Machine Elements, Heat & Mass Transfer, Mechatronics, CAD/CAM/CIM" },
-      { sem: "Sem 7 & 8: Electric Mobility & Project", subjects: "Electric & Hybrid Vehicles, Computational Fluid Dynamics, Industrial Robotics, Major Capstone" }
+      { sem: "Sem 1 & 2: Financial Foundations", subjects: "Financial Accounting, Business Organization, Business Economics, Business Communication, Tally Prime Lab" },
+      { sem: "Sem 3 & 4: Corporate & Cost Accounting", subjects: "Corporate Accounting, Cost Accounting, Banking Theory & Practice, Business Statistics, Marketing Management" },
+      { sem: "Sem 5 & 6: Taxation & Strategic Finance", subjects: "Income Tax Law & Practice, Management Accounting, Goods & Services Tax (GST), Auditing & Corporate Governance, Financial Analytics" }
     ],
-    careerRoles: "Design Engineer, Automobile R&D Specialist, Thermal Analyst, Production Manager, Automation Engineer."
+    careerRoles: "Financial Analyst, Tax Consultant, Corporate Accountant, Investment Banker, Audit Associate."
   },
-  civil: {
-    name: "B.E. Civil Engineering",
-    category: "DEPARTMENT OF INFRASTRUCTURE & ENVIRONMENT",
-    duration: "4 Years (8 Semesters) &bull; Autonomous Curriculum",
-    overview: "Focuses on resilient structural analysis, smart green buildings, geotechnical foundations, environmental sustainability, and GIS highway design.",
+  bba: {
+    name: "BBA (Bachelor of Business Administration)",
+    category: "DEPARTMENT OF MANAGEMENT STUDIES",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "Develops strategic managerial acumen, entrepreneurial thinking, digital marketing leadership, human resource dynamics, and supply chain logistics.",
     highlights: [
-      "Heavy Structures Testing Bed and Non-Destructive Concrete Testing Lab",
-      "Advanced Total Station GIS Surveying & Remote Sensing Centre",
-      "Patented research in low-carbon geo-polymer concrete admixtures"
+      "Management Case Study & Entrepreneurship Incubation Hub",
+      "Digital Marketing & Business Analytics Simulation Suite",
+      "Executive guest lectures and leadership mentoring sessions"
     ],
     semesters: [
-      { sem: "Sem 1 & 2: Surveying & Geology", subjects: "Engineering Geology, Surveying Practices, Mechanics of Solids, Physics" },
-      { sem: "Sem 3 & 4: Structures & Hydraulics", subjects: "Structural Analysis, Fluid Mechanics, Concrete Technology, Soil Mechanics" },
-      { sem: "Sem 5 & 6: Design & Environmental", subjects: "Design of RC & Steel Elements, Environmental Engineering, Transportation Engineering, Foundation Design" },
-      { sem: "Sem 7 & 8: Smart Cities & Project", subjects: "Smart Infrastructure Design, Construction Management, Earthquake Engineering, Major Project" }
+      { sem: "Sem 1 & 2: Management Principles", subjects: "Principles of Management, Business Environment, Managerial Economics, Quantitative Techniques, Business Communication" },
+      { sem: "Sem 3 & 4: Core Functional Areas", subjects: "Marketing Management, Human Resource Management, Financial Management, Production & Operations, Research Methodology" },
+      { sem: "Sem 5 & 6: Strategy & Entrepreneurship", subjects: "Strategic Management, Digital & Social Media Marketing, Entrepreneurship Development, Supply Chain & Logistics, Capstone Project" }
     ],
-    careerRoles: "Structural Engineer, Project Management Consultant, Geotechnical Specialist, Highway Engineer, GIS Analyst."
+    careerRoles: "Business Development Executive, Marketing Strategist, HR Specialist, Operations Manager, Startup Founder."
+  },
+  eng: {
+    name: "B.A. English Literature & Journalism",
+    category: "DEPARTMENT OF HUMANITIES & LANGUAGES",
+    duration: "3 Years (6 Semesters) &bull; Autonomous Curriculum",
+    overview: "Combines literary studies, creative writing, digital journalism, media ethics, corporate communications, and language linguistics.",
+    highlights: [
+      "Multimedia Language & Phonetics Laboratory",
+      "Campus Journal & Creative Writing Publishing Guild",
+      "Career preparation for Civil Services, Publishing, Media, and Content Strategy"
+    ],
+    semesters: [
+      { sem: "Sem 1 & 2: Literary Foundations", subjects: "British Poetry & Drama, Social History of England, Advanced Grammar & Phonetics, Literary Forms & Terms" },
+      { sem: "Sem 3 & 4: World & American Literature", subjects: "American Literature, Shakespeare Studies, Indian Writing in English, Journalism & Mass Communication" },
+      { sem: "Sem 5 & 6: Modern Media & Criticism", subjects: "Literary Criticism & Theory, Digital Media & Content Strategy, Translation Studies, Creative Writing Portfolio" }
+    ],
+    careerRoles: "Content Strategist, Digital Journalist, Corporate Communications Specialist, Copywriter, Editorial Assistant, Civil Services."
   }
 };
+// Aliases for backwards compatibility
+DEPARTMENT_SYLLABUS_DATA.cse = DEPARTMENT_SYLLABUS_DATA.cs;
+DEPARTMENT_SYLLABUS_DATA.aids = DEPARTMENT_SYLLABUS_DATA.cs;
+DEPARTMENT_SYLLABUS_DATA.ece = DEPARTMENT_SYLLABUS_DATA.it;
+DEPARTMENT_SYLLABUS_DATA.mech = DEPARTMENT_SYLLABUS_DATA.bba;
+DEPARTMENT_SYLLABUS_DATA.civil = DEPARTMENT_SYLLABUS_DATA.bcom;
 
 function initDepartmentFeatures() {
   // Filter tabs
@@ -489,8 +489,23 @@ function initDepartmentFeatures() {
     link.addEventListener("click", () => {
       const deptName = link.dataset.deptName;
       const deptSelect = document.getElementById("department");
+      const calcDept = document.getElementById("calcDept");
+
+      const reverseDeptMap = {
+        "B.Sc. Computer Science": "cs",
+        "BCA (Bachelor of Computer Applications)": "bca",
+        "B.Sc. Information Technology": "it",
+        "B.Com (General & Accounting)": "bcom",
+        "BBA (Business Administration)": "bba",
+        "B.A. English Literature": "eng"
+      };
+
       if (deptSelect && deptName) {
         deptSelect.value = deptName;
+      }
+      if (calcDept && reverseDeptMap[deptName]) {
+        calcDept.value = reverseDeptMap[deptName];
+        calcDept.dispatchEvent(new Event("change"));
       }
     });
   });
@@ -515,25 +530,31 @@ function initFeeCalculator() {
   const btnApplyWithCalc = document.getElementById("btnApplyWithCalc");
 
   const BASE_FEES = {
-    cse: 90000,
-    aids: 90000,
-    ece: 85000,
-    it: 85000,
-    mech: 75000,
-    civil: 75000
+    cs: 48000,
+    bca: 46000,
+    it: 45000,
+    bcom: 42000,
+    bba: 40000,
+    eng: 35000,
+    // Aliases
+    cse: 48000,
+    aids: 48000,
+    ece: 45000,
+    mech: 40000,
+    civil: 42000
   };
 
   function calculate() {
-    const dept = deptSelect ? deptSelect.value : "cse";
+    const dept = deptSelect ? deptSelect.value : "cs";
     const quota = quotaSelect ? quotaSelect.value : "govt";
     const marks = marksInput ? parseInt(marksInput.value, 10) : 88;
     const hasHostel = hostelCheck ? hostelCheck.checked : false;
 
     if (marksDisplay) marksDisplay.textContent = `${marks}%`;
 
-    let tuition = BASE_FEES[dept] || 85000;
-    if (quota === "mgmt") tuition += 25000;
-    if (quota === "lateral") tuition -= 10000;
+    let tuition = BASE_FEES[dept] || 45000;
+    if (quota === "mgmt") tuition += 15000;
+    if (quota === "sports") tuition -= 5000;
 
     // Scholarship Discount Calculation
     let discountPercent = 0;
@@ -550,7 +571,7 @@ function initFeeCalculator() {
     }
 
     const discountAmount = Math.round(tuition * discountPercent);
-    const hostelFee = hasHostel ? 70000 : 0;
+    const hostelFee = hasHostel ? 55000 : 0;
     const netTotal = (tuition - discountAmount) + hostelFee;
 
     if (outTuition) outTuition.textContent = `₹${tuition.toLocaleString("en-IN")}`;
@@ -586,20 +607,26 @@ function initFeeCalculator() {
       const formSection = document.getElementById("admissions");
 
       const selectedDeptMap = {
-        cse: "Computer Science and Engineering",
-        aids: "Artificial Intelligence and Data Science",
-        ece: "Electronics and Communication Engineering",
-        it: "Information Technology",
-        mech: "Mechanical Engineering",
-        civil: "Civil Engineering"
+        cs: "B.Sc. Computer Science",
+        bca: "BCA (Bachelor of Computer Applications)",
+        it: "B.Sc. Information Technology",
+        bcom: "B.Com (General & Accounting)",
+        bba: "BBA (Business Administration)",
+        eng: "B.A. English Literature",
+        // Aliases
+        cse: "B.Sc. Computer Science",
+        aids: "B.Sc. Computer Science",
+        ece: "B.Sc. Information Technology",
+        mech: "BBA (Business Administration)",
+        civil: "B.Com (General & Accounting)"
       };
 
       if (formDept && deptSelect) formDept.value = selectedDeptMap[deptSelect.value] || "";
       if (formMarks && marksInput) formMarks.value = marksInput.value;
       if (formQuota && quotaSelect) {
-        if (quotaSelect.value === "lateral") formQuota.value = "Direct Lateral Entry (2nd Year)";
-        else if (quotaSelect.value === "mgmt") formQuota.value = "Direct Management Quota";
-        else formQuota.value = "TNEA Single Window Counseling";
+        if (quotaSelect.value === "mgmt") formQuota.value = "Direct Management Quota";
+        else if (quotaSelect.value === "sports") formQuota.value = "Sports / Special Quota";
+        else formQuota.value = "University Single Window Merit Quota";
       }
 
       if (formSection) formSection.scrollIntoView({ behavior: "smooth" });
@@ -615,7 +642,7 @@ const FORM_VALIDATORS = {
   fullName: (val) => (val.trim().length >= 3 ? "" : "Please enter student's full name (at least 3 characters)."),
   email: (val) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()) ? "" : "Please enter a valid email address."),
   phone: (val) => (/^[6-9]\d{9}$/.test(val.trim()) ? "" : "Enter a valid 10-digit Indian mobile number (starting with 6, 7, 8, 9)."),
-  department: (val) => (val.trim() ? "" : "Please select your preferred engineering branch.")
+  department: (val) => (val.trim() ? "" : "Please select your preferred degree programme.")
 };
 
 function showFieldError(fieldName, msg) {
@@ -649,7 +676,7 @@ function showConfirmModal(entry) {
   receipt.innerHTML = `
     <div class="confirm-receipt-row">
       <span>Application Ref:</span>
-      <strong>${entry.applicationId || "ACET-2026-PENDING"}</strong>
+      <strong>${entry.applicationId || "SASC-2026-PENDING"}</strong>
     </div>
     <div class="confirm-receipt-row">
       <span>Candidate Name:</span>
@@ -698,7 +725,7 @@ async function submitAdmissionEnquiry(payload) {
 
   const entry = (apiSuccess && result && result.entry) ? result.entry : {
     id: Date.now(),
-    applicationId: `ACET-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+    applicationId: `SASC-2026-${Math.floor(1000 + Math.random() * 9000)}`,
     submittedAt: new Date().toISOString(),
     status: "Verified",
     ...payload,
@@ -849,7 +876,7 @@ function renderAdminTable(filterQuery = "") {
 
   tbody.innerHTML = entries.map(e => `
     <tr>
-      <td><strong>${e.applicationId || "ACET-2026-N/A"}</strong></td>
+      <td><strong>${e.applicationId || "SASC-2026-N/A"}</strong></td>
       <td><strong>${e.fullName}</strong></td>
       <td>${e.department}</td>
       <td><span style="font-weight: 700; color: var(--blue-600);">${e.marksPercentage || "N/A"}</span></td>
@@ -884,7 +911,7 @@ function exportAdmissionsToCsv() {
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
-  link.setAttribute("download", `acet_admissions_report_${Date.now()}.csv`);
+  link.setAttribute("download", `sasc_admissions_report_${Date.now()}.csv`);
   document.body.appendChild(link);
   link.click();
   link.remove();
@@ -1132,7 +1159,7 @@ function initLeadershipSlider() {
 // EMAILJS INITIALIZATION & DISPATCH ENGINE
 // ==========================================================================
 function initEmailJs() {
-  const pubKey = localStorage.getItem("acet_emailjs_public_key") || EMAILJS_CONFIG.publicKey;
+  const pubKey = localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || EMAILJS_CONFIG.publicKey;
   if (window.emailjs && pubKey) {
     try {
       window.emailjs.init({ publicKey: pubKey });
@@ -1145,8 +1172,8 @@ function initEmailJs() {
 
 async function sendEmailViaEmailJs(params) {
   const serviceId = EMAILJS_CONFIG.serviceID;
-  const templateId = localStorage.getItem("acet_emailjs_template_id") || EMAILJS_CONFIG.templateID;
-  const publicKey = localStorage.getItem("acet_emailjs_public_key") || EMAILJS_CONFIG.publicKey;
+  const templateId = localStorage.getItem("sasc_emailjs_template_id") || localStorage.getItem("acet_emailjs_template_id") || EMAILJS_CONFIG.templateID;
+  const publicKey = localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || EMAILJS_CONFIG.publicKey;
 
   if (!window.emailjs) {
     console.warn("EmailJS SDK not loaded.");
@@ -1179,11 +1206,11 @@ function buildEmailTemplateParams(data) {
   const name = (data.fullName || data.name || "").trim();
   const email = (data.email || "").trim();
   const phone = (data.phone || data.mobile || "Not Provided").trim();
-  const branch = (data.department || data.branch || data.subject || "General Engineering").trim();
+  const branch = (data.department || data.branch || data.subject || "Arts & Science Degree").trim();
   const rawScore = data.marksPercentage ? String(data.marksPercentage).replace(/%/g, "").trim() : "N/A";
   const route = (data.quota || data.admissionRoute || "Direct Enquiry").trim();
   const query = (data.message || data.query || "No specific query provided.").trim();
-  const ticket = data.applicationId || data.ticketId || `ACET-${Date.now().toString().slice(-4)}`;
+  const ticket = data.applicationId || data.ticketId || `SASC-${Date.now().toString().slice(-4)}`;
 
   return {
     // 1. Exact Label Match (matching the user's EmailJS visual template table)
@@ -1331,7 +1358,7 @@ function initTransitControls() {
   const copyBtn = document.getElementById("btnCopyAddress");
   if (copyBtn) {
     copyBtn.addEventListener("click", () => {
-      const address = "Anwer College of Engineering & Technology, NH-48, Chennai–Bengaluru Highway, Kanchipuram – 631 502, Tamil Nadu, India.";
+      const address = "Sha's Arts and Science College, NH-48, Chennai–Bengaluru Highway, Kanchipuram – 631 502, Tamil Nadu, India.";
       navigator.clipboard.writeText(address).then(() => {
         showToast("Campus Address copied to clipboard!", "📋");
       }).catch(() => {
@@ -1352,8 +1379,8 @@ function initEmailJsAdminSettings() {
   const testBtn = document.getElementById("btnTestEmailJs");
   const testAlert = document.getElementById("emailJsTestAlert");
 
-  const currentTemplate = localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w";
-  const currentPublic = localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0";
+  const currentTemplate = localStorage.getItem("sasc_emailjs_template_id") || localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w";
+  const currentPublic = localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0";
 
   if (templateInput) templateInput.value = currentTemplate;
   if (publicInput) publicInput.value = currentPublic;
@@ -1363,8 +1390,8 @@ function initEmailJsAdminSettings() {
       const tVal = templateInput ? templateInput.value.trim() : "";
       const pVal = publicInput ? publicInput.value.trim() : "";
 
-      localStorage.setItem("acet_emailjs_template_id", tVal);
-      localStorage.setItem("acet_emailjs_public_key", pVal);
+      localStorage.setItem("sasc_emailjs_template_id", tVal);
+      localStorage.setItem("sasc_emailjs_public_key", pVal);
 
       EMAILJS_CONFIG.templateID = tVal;
       EMAILJS_CONFIG.publicKey = pVal;
@@ -1399,14 +1426,14 @@ function initEmailJsAdminSettings() {
       const res = await sendEmailViaEmailJs({
         to_name: "Admin Office",
         to_email: EMAILJS_CONFIG.targetEmail,
-        from_name: "ACET Portal Test",
-        name: "ACET Portal Test",
-        from_email: "test@acet.ac.in",
-        email: "test@acet.ac.in",
-        reply_to: "test@acet.ac.in",
+        from_name: "SASC Portal Test",
+        name: "SASC Portal Test",
+        from_email: "test@sasc.ac.in",
+        email: "test@sasc.ac.in",
+        reply_to: "test@sasc.ac.in",
         phone: "+91 44 2726 8900",
         subject: "EmailJS Service Test Ping",
-        message: "Congratulations! Your EmailJS Gmail service (service_r67exzm) is connected and functioning on the Anwer College Portal.",
+        message: "Congratulations! Your EmailJS Gmail service (service_r67exzm) is connected and functioning on the Sha's Arts & Science College Portal.",
         ticket_id: "TEST-" + Math.floor(1000 + Math.random() * 9000),
         received_at: new Date().toLocaleString("en-IN")
       });
@@ -1495,6 +1522,44 @@ function initAdminTabs() {
 }
 
 // ==========================================================================
+// CAMPUS COMMAND TERMINAL FAST LAUNCHER
+// ==========================================================================
+function initTerminalLauncher() {
+  const btnLaunch = document.getElementById("btnLaunchFromTerminal");
+  const selectCourse = document.getElementById("terminalCourseSelect");
+  if (!btnLaunch || !selectCourse) return;
+
+  btnLaunch.addEventListener("click", (e) => {
+    e.preventDefault();
+    const course = selectCourse.value;
+    const calcDept = document.getElementById("calcDept");
+    if (calcDept) {
+      calcDept.value = course;
+      calcDept.dispatchEvent(new Event("change"));
+    }
+
+    const deptMap = {
+      cs: "B.Sc. Computer Science",
+      bca: "BCA (Bachelor of Computer Applications)",
+      it: "B.Sc. Information Technology",
+      bcom: "B.Com (General & Accounting)",
+      bba: "BBA (Business Administration)",
+      eng: "B.A. English Literature"
+    };
+
+    const formDept = document.getElementById("department");
+    if (formDept && deptMap[course]) {
+      formDept.value = deptMap[course];
+    }
+
+    const studio = document.getElementById("admissions-studio") || document.getElementById("admissions");
+    if (studio) {
+      studio.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
+// ==========================================================================
 // INITIALIZATION ON DOM READY
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -1502,6 +1567,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initEmailJs();
   initNavAndScroll();
   initCountdown();
+  initTerminalLauncher();
   initLeadershipSlider();
   loadNotices();
   initNoticeControls();

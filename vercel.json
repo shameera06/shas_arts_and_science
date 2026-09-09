@@ -3,6 +3,7 @@
   "version": 2,
   "framework": null,
   "rewrites": [
+    { "source": "/api/health", "destination": "/api/health.js" },
     { "source": "/api/notices", "destination": "/api/notices.js" },
     { "source": "/api/admissions", "destination": "/api/admissions.js" },
     { "source": "/api/contact", "destination": "/api/contact.js" },

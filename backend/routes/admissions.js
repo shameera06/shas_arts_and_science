@@ -8,12 +8,18 @@ const ADMISSIONS_FILE = path.join(__dirname, "..", "data", "admissions.json");
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[6-9]\d{9}$/;
 const VALID_DEPARTMENTS = [
-  "Computer Science and Engineering",
-  "Electronics and Communication Engineering",
-  "Mechanical Engineering",
-  "Civil Engineering",
+  "B.Sc. Computer Science",
+  "BCA (Bachelor of Computer Applications)",
+  "B.Sc. Information Technology",
+  "B.Com (General & Accounting)",
+  "BBA (Business Administration)",
+  "B.A. English Literature",
+  "Computer Science",
+  "Computer Applications",
   "Information Technology",
-  "Artificial Intelligence and Data Science"
+  "Commerce",
+  "Business Administration",
+  "English Literature"
 ];
 
 function readEnquiries() {
@@ -79,7 +85,7 @@ router.post("/", (req, res) => {
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
     const entry = {
       id: Date.now(),
-      applicationId: `ACET-2026-${randomSuffix}`,
+      applicationId: `SASC-2026-${randomSuffix}`,
       submittedAt: new Date().toISOString(),
       status: "Verified Submission",
       ...cleaned

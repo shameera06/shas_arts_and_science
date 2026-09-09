@@ -1,9 +1,10 @@
 {
-  "name": "anwer-college-portal",
+  "name": "shas-arts-science-college-portal",
   "version": "2.0.0",
-  "description": "Modern College Web Portal for Anwer College of Engineering and Technology. Ready for Vercel deployment.",
+  "description": "Modern College Web Portal for Sha's Arts and Science College. Autonomous Institution. Ready for Vercel deployment.",
   "main": "backend/server.js",
   "scripts": {
+    "build": "echo \"Ready for Vercel deployment\"",
     "start": "node backend/server.js",
     "dev": "node backend/server.js"
   },

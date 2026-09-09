@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, service: "anwer-college-portal-api", time: new Date().toISOString() });
+  res.json({ ok: true, service: "sha-arts-science-portal-api", time: new Date().toISOString() });
 });
 
 app.use("/api/notices", noticesRouter);
@@ -27,6 +27,22 @@ app.use((req, res) => {
   res.status(404).json({ ok: false, error: "Route not found." });
 });
 
-app.listen(PORT, () => {
-  console.log(`Anwer College portal API running at http://localhost:${PORT}`);
+const HOST = "0.0.0.0";
+const server = app.listen(PORT, HOST, () => {
+  console.log(`\n==================================================`);
+  console.log(`Sha's Arts and Science College portal API running at:`);
+  console.log(`  👉 http://localhost:${PORT}`);
+  console.log(`  👉 http://127.0.0.1:${PORT}`);
+  console.log(`==================================================\n`);
+});
+
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    console.log(`\nNotice: Port ${PORT} is already in use (the portal is already actively running!).`);
+    console.log(`You can open your browser directly at: http://localhost:${PORT}\n`);
+    process.exit(0);
+  } else {
+    console.error("Server error:", err);
+    process.exit(1);
+  }
 });
