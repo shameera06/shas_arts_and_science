@@ -19,10 +19,11 @@ const LOCAL_STORAGE_CONTACTS_KEY = "sasc_contact_messages_v1";
 // Service ID: service_37901th
 // ==========================================================================
 const _savedTpl = localStorage.getItem("sasc_emailjs_template_id");
+const _savedKey = localStorage.getItem("sasc_emailjs_public_key");
 const EMAILJS_CONFIG = {
   serviceID: "service_37901th",
   templateID: (_savedTpl && _savedTpl !== "template_1n0155w") ? _savedTpl : "template_7gka1la",
-  publicKey: localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0",
+  publicKey: (_savedKey && _savedKey !== "0WR6ahkACe6eHYlt0") ? _savedKey : "NI7gyS87ZhgxNHA-2",
   targetEmail: "shameerashasha@gmail.com"
 };
 
@@ -1381,8 +1382,9 @@ function initEmailJsAdminSettings() {
   const testAlert = document.getElementById("emailJsTestAlert");
 
   const _savedAdminTpl = localStorage.getItem("sasc_emailjs_template_id");
+  const _savedAdminKey = localStorage.getItem("sasc_emailjs_public_key");
   const currentTemplate = (_savedAdminTpl && _savedAdminTpl !== "template_1n0155w") ? _savedAdminTpl : "template_7gka1la";
-  const currentPublic = localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0";
+  const currentPublic = (_savedAdminKey && _savedAdminKey !== "0WR6ahkACe6eHYlt0") ? _savedAdminKey : "NI7gyS87ZhgxNHA-2";
 
   if (templateInput) templateInput.value = currentTemplate;
   if (publicInput) publicInput.value = currentPublic;
