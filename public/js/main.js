@@ -16,11 +16,12 @@ const LOCAL_STORAGE_CONTACTS_KEY = "sasc_contact_messages_v1";
 
 // ==========================================================================
 // EMAILJS INTEGRATION CONFIGURATION
-// Service ID: service_r67exzm (Gmail service connected to meerananwer12@gmail.com)
+// Service ID: service_37901th
 // ==========================================================================
+const _savedTpl = localStorage.getItem("sasc_emailjs_template_id");
 const EMAILJS_CONFIG = {
-  serviceID: "service_r67exzm",
-  templateID: localStorage.getItem("sasc_emailjs_template_id") || localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w",
+  serviceID: "service_37901th",
+  templateID: (_savedTpl && _savedTpl !== "template_1n0155w") ? _savedTpl : "template_7gka1la",
   publicKey: localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0",
   targetEmail: "meerananwer12@gmail.com"
 };
@@ -1379,7 +1380,8 @@ function initEmailJsAdminSettings() {
   const testBtn = document.getElementById("btnTestEmailJs");
   const testAlert = document.getElementById("emailJsTestAlert");
 
-  const currentTemplate = localStorage.getItem("sasc_emailjs_template_id") || localStorage.getItem("acet_emailjs_template_id") || "template_1n0155w";
+  const _savedAdminTpl = localStorage.getItem("sasc_emailjs_template_id");
+  const currentTemplate = (_savedAdminTpl && _savedAdminTpl !== "template_1n0155w") ? _savedAdminTpl : "template_7gka1la";
   const currentPublic = localStorage.getItem("sasc_emailjs_public_key") || localStorage.getItem("acet_emailjs_public_key") || "0WR6ahkACe6eHYlt0";
 
   if (templateInput) templateInput.value = currentTemplate;
@@ -1433,7 +1435,7 @@ function initEmailJsAdminSettings() {
         reply_to: "test@sasc.ac.in",
         phone: "+91 44 2726 8900",
         subject: "EmailJS Service Test Ping",
-        message: "Congratulations! Your EmailJS Gmail service (service_r67exzm) is connected and functioning on the Sha's Arts & Science College Portal.",
+        message: "Congratulations! Your EmailJS service (service_37901th) is connected and functioning on the Sha's Arts & Science College Portal.",
         ticket_id: "TEST-" + Math.floor(1000 + Math.random() * 9000),
         received_at: new Date().toLocaleString("en-IN")
       });
